@@ -1,9 +1,12 @@
 # 对本项目内容进行新增或修改需要遵循
+文档使用`Markdown`来写。
+
 ## 新增
 1 新增的内容要按照分类放到指定的文件夹下。分类及文件夹的对应关系如下
 * API 速查 -> cheat-sheets
 * 代码规范及最佳实践 -> code-style
 * 知识总结 -> knowledge
+* 第三方插件使用demo -> demo
 * 技巧 -> tip
 * 软件使用 -> software
 
