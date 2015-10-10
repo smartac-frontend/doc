@@ -47,5 +47,7 @@
 * [软件推荐](software/suggest.md)
 * [Git](software/git.md)
 * [Markdown](software/markdown.md)
+* [weinre](software/weinre.md) 在电脑上直接调试运行在手机上的远程页面
+
 
 
