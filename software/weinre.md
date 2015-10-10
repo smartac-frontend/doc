@@ -13,7 +13,7 @@
 1. 将要调试的Web页面发布到服务器
 1. 手机端使用任意浏览器打开需要调试的页面。
 1. PC访问http://localhost:8008，点击http://localhost:8008/client/#anonymous
-![](weinre-img/overview.png)
+![](weinre-imgs/overview.png)
 1. 点击需要调试的页面超链接，选择Elements，即可进行调试
-![](weinre-img/debug.png)
+![](weinre-imgs/debug.png)
 
