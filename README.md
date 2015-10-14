@@ -46,6 +46,7 @@
 ## <a name="software">软件</a>
 * [软件推荐](software/suggest.md)
 * [Git](software/git.md)
+* [Gitflow工作流](software/gitflow.md)
 * [Markdown](software/markdown.md)
 * [weinre](software/weinre.md) 在电脑上直接调试运行在手机上的远程页面
 

@@ -48,7 +48,7 @@ Desktop.ini
 git config core.ignorecase false
 ```
 
-## <a name="homework">作业</a>
+## <a name="practice">练习</a>
 1. 安装[Github](https://github.com/)的客户端 [windows 版下载](https://windows.github.com/)
 1. 注册Github的账号
 1. 创建一个名为`front-end-learn` 的项目
