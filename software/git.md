@@ -39,6 +39,8 @@ Desktop.ini
 *.log
 ```
 
+![git使用demo](git-imgs/git-use-example.jpg)
+
 一些`.gitignore`的模板 https://github.com/github/gitignore
 
 ## 常见问题
