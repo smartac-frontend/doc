@@ -34,7 +34,7 @@
 ## <a name="code-style">代码规范及最佳实践</a>
 
 ## <a name="knowledge">知识总结</a>
-* [CSS拓展语言：Sass介绍](knowledge/sass)
+* [CSS拓展语言：Sass介绍](knowledge/sass) [ppt](ppt/sass.html)
 * 如何用`Flex`布局
 * Cookie详解
 
