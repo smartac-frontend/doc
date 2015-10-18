@@ -31,7 +31,9 @@ Git有很多优势，其中之一就是远程操作非常简便，以及速度�
 	* 将某分支的改动推送到服务器 `git push origin branchName`
 * 发生冲突时，文件中会用 `>>>>` 和 `<<<<` 来标明冲突的地方。合并好后，`git add 这个冲突的文件`。 然后再commit,push
 
-## gitignore
+![git使用demo](git-imgs/git-use-example.jpg)
+
+## .gitignore
 如果项目想让某些文件的版本不受Git管理，可以在项目的根路径创建个文件，名称为 `.gitignore`。内容为不受Git管理的文件名。 如
 ```
 .idea
@@ -40,6 +42,21 @@ Desktop.ini
 ```
 
 一些`.gitignore`的模板 https://github.com/github/gitignore
+
+## Github表情符
+在Github中可以在 Pull Requests, Issues, 提交消息, Markdown 文件里加入表情符。使用方法 :name_of_emoji:
+
+如输入
+```
+:smile: :flushed: :sleeping:
+:sunny: :snowman: :full_moon:
+:ghost: :camera: :calendar:
+```
+
+输出    
+:smile: :flushed: :sleeping:    
+:sunny: :snowman: :full_moon:    
+:ghost: :camera: :calendar:    
 
 ## 常见问题
 ### 如何配置Git支持对文件名的大小写敏感
@@ -65,6 +82,7 @@ git config core.ignorecase false
 
 ## 拓展阅读
 * [猴子都能懂的Git入门](http://backlogtool.com/git-guide/cn/)
+* [Git 及托管商 Github 的使用](https://github.com/xirong/my-git)
 * [版本控制入门插图教程](http://www.ruanyifeng.com/blog/2008/12/a_visual_guide_to_version_control.html)
 * [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
 * [史上最浅显易懂的Git教程！](http://rogerdudler.github.io/git-guide/index.zh.html)
