@@ -36,10 +36,11 @@
 ## <a name="code-style">代码规范及最佳实践</a>
 
 ## <a name="knowledge">知识总结</a>
+* [CSS拓展语言：Sass介绍](knowledge/sass) [ppt](ppt/sass.html)
 * 如何用`Flex`布局
 * Cookie详解
 
-## <a name="knowledge">第三方插件使用demo</a>
+## <a name="demo">第三方插件使用demo</a>
 
 ## <a name="tip">技巧</a>
 * [如何跟上前端开发的最新前沿](https://uptodate.frontendrescue.org/zh/)
