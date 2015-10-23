@@ -8,6 +8,8 @@
 ## 聚会
 每周一次的聚会。每次聚会会定一个主题。主持人根据主题进行分享，分享之后，大家可以聊下最近工作中碰到的一些难题，心得之类。聚会时长1小时左右。在没有人自告奋勇的情况下，大家轮流做主持人。    
 
+如果分享时，要做PPT的，推荐用[reveal.js](software/reveal.js.md)。    
+
 聚会的记录和一些讨论回复在标题为聚会主题，标签为聚会的[issue](https://github.com/smartac-frontend/doc/labels/%E8%81%9A%E4%BC%9A)下。
 
 ## 每周好文
@@ -49,6 +51,7 @@
 * [Gitflow工作流](software/gitflow.md)
 * [Markdown](software/markdown.md)
 * [weinre](software/weinre.md) 在电脑上直接调试运行在手机上的远程页面
+* [reveal.js](software/reveal.js.md) 是一个展示内容的框架，可以简单的理解为网页版的PPT。
 
 
 
