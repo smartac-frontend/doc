@@ -15,10 +15,15 @@
 
     // 取2张与之前不重复的
     function getTwoNoRepeatPic() {
+        var i = 0;
         var selectPics = selectPic(2);
         // 如果重复，再选
-        while (isRepeat(selectPics)) {
+        while (isRepeat(selectPics) && i < 100) {
+            i++;
             selectPics = selectPic(2);
+        }
+        if(i >= 100){
+            alert('图片太少，找不到不重复的！')
         }
         prevSelectPics.push(selectPics.join(','));
         return selectPics;
