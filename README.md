@@ -19,7 +19,7 @@
 * [API 速查](#cheat-sheets)
 * [代码规范及最佳实践](#code-style)
 * [知识总结](#knowledge)
-* [第三方插件使用demo](#demo)
+* [第三方插件使用或一些其他的demo](#demo)
 * [技巧](#tip)
 * [软件](#software)
 
@@ -40,7 +40,8 @@
 * 如何用`Flex`布局
 * Cookie详解
 
-## <a name="demo">第三方插件使用demo</a>
+## <a name="demo">第三方插件使用或一些其他的demo</a>
+* [随机选图片](demo/select-no-repeat-pic) 从若干张图片中个，随机选择2张，下一次继续随机选2张，但选的不能和之前的图片相同
 
 ## <a name="tip">技巧</a>
 * [如何跟上前端开发的最新前沿](https://uptodate.frontendrescue.org/zh/)
