@@ -18,6 +18,8 @@ sudo gem install compass
 `compass create myproject`
 成功之后可以在你的文件夹下面看到三个文件了 config.rb sass stylesheets
 config.rb是配置文件，还有两个子目录sass和stylesheets，前者存放Sass源文件，后者存放编译后的css文件。
+![1](https://github.com/smartac-frontend/doc/blob/master/knowledge/Compass/images/2.png)
+![1](https://github.com/smartac-frontend/doc/blob/master/knowledge/Compass/images/3.png)
 ## 四、编译
 在写代码之前，我们还要知道如何编译。因为我们写出来的是后缀名为scss的文件，只有编译成css文件，才能用在网站上。Compass的编译命令是
             `compass compile`
