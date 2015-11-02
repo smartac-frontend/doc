@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sass介绍</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <style>
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+            text-transform:none;
+        }
+    </style>
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-transition="zoom">
+            <h3>Compass是什么？</h3>
+            <p>Compass是Sass的工具库</p>
+        </section>
+        <section data-transition="zoom-in fade-out">
+            <h3>安装</h3>
+            <pre><code>gem install compass</code></pre>
+        </section>
+        <section data-transition="convex">
+            <h3>使用</h3>
+            <pre><code>compass create myproject</code></pre>
+        </section>
+        <section>
+            <h3>编译</h3>
+            <pre><code>compass compile</code></pre>
+        </section>
+        <section data-transition="convex-in concave-out">
+            <h3>--output-style参数</h3>
+            <pre><code>compass compile --output-style compressed</code></pre>
+        </section>
+        <section>
+            <h3>--force参数</h3>
+            <pre><code>compass compile --force</code></pre>
+        </section>
+        <section data-transition="concave">
+            <h2>compass watch命令</h2>
+            <pre><code>compass watch</code></pre>
+        </section>
+        <section data-transition="concave">
+            <h2>Compass的模块</h2>
+            <ul>
+                <li class="fragment">reset</li>
+                <li class="fragment">css3</li>
+                <li class="fragment">layout</li>
+                <li class="fragment">typography</li>
+                <li class="fragment">utilities</li>
+            </ul>
+        </section>
+        <section data-transition="convex-in fade-out">
+            <h3>reset模块</h3>
+            <pre><code>@import "compass/reset";</code></pre>
+        </section>
+        <section data-transition="convex-in fade-out"><h3>End</h3></section>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }]
+        });
+    </script>
+</div>
+</body>
+
+</html>
