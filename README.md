@@ -70,6 +70,7 @@
 * [Markdown](software/markdown.md)
 * [weinre](software/weinre.md) 在电脑上直接调试运行在手机上的远程页面
 * [reveal.js](software/reveal.js.md) 是一个展示内容的框架，可以简单的理解为网页版的PPT。
+* Emmet [ppt](ppt/emmet.html)
 
 
 
