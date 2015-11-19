@@ -1,4 +1,8 @@
-# 文档
+<h1 align="center">文档</h1>
+<p align="center">
+<a href="https://gitter.im/iamjoel/smartac-fe"><img src="https://badges.gitter.im/Join Chat.svg"></a>
+</p>
+
 存放前端相关文档。    
 
 集大家的力量，使我们前端小组成员成为高效，优雅的前端工程师。    
