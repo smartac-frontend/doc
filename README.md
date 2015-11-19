@@ -55,6 +55,7 @@
 ## <a name="knowledge">知识总结</a>
 * [CSS拓展语言：Sass介绍](knowledge/sass) [ppt](ppt/sass.html)
 * [Compass用法指南](knowledge/Compass) [ppt](ppt/Compass.html)
+* Flex布局 [ppt](ppt/flex.html) [demo](demo/flex)
 
 ## <a name="demo">第三方插件使用或一些其他的demo</a>
 * [随机选图片](demo/select-no-repeat-pic) 从若干张图片中个，随机选择2张，下一次继续随机选2张，但选的不能和之前的图片相同
