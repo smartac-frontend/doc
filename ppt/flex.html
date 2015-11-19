@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>flex介绍</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <style>
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal h4,
+    .reveal h5,
+    .reveal h6 {
+        text-transform: none;
+    }
+    </style>
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-transition="zoom">
+                <h3>Flexible Box 弹性布局</h3>
+                <p>为盒状模型提供最大的灵活性</p>
+            </section>
+            <section data-transition="zoom-in fade-out">
+                <h3>基本概念</h3>
+                <ul>
+                    <li class="fragment">
+                        项目,项目成员
+                        <ul>
+                            <li class="fragment">水平的主轴</li>
+                            <li class="fragment">垂直的交叉轴</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section data-transition="convex">
+                <h3>项目属性</h3>
+                <ul>
+                    <li class="fragment">
+                        1.flex-direction
+                        <ul>
+                            <li class="fragment">决定项目成员在主轴上的方向</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        2.flex-wrap
+                        <ul>
+                            <li class="fragment">决定项目成员在一条轴线上排不下，如何换行</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        3.flex-flow
+                        <ul>
+                            <li class="fragment">flex-direction属性和flex-wrap属性的简写形式</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        4.justify-content
+                        <ul>
+                            <li class="fragment">定义了项目成员在主轴（水平）上的对齐方式</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        5.align-items
+                        <ul>
+                            <li class="fragment">定义项目在交叉轴（垂直）上如何对齐,具体的对齐方式与交叉轴的方向有关</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        6.align-content
+                        <ul>
+                            <li class="fragment">多根轴线情况下，项目成员在交叉轴（垂直）上如何让对齐，PS:只有一根主轴时，该属性不起作用</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>flex-direction</h3>
+                <pre><code>flex-direction: row | row-reverse | column | column-reverse;</code></pre>
+                <!-- <a class="image"> -->
+                <img src="img/direction.png">
+                <!-- </a> -->
+            </section>
+            <section data-transition="convex-in concave-out">
+                <h3>flex-wrap</h3>
+                <pre><code>flex-wrap: nowrap | wrap | wrap-reverse;</code></pre>
+                <img src="img/wrap.png">
+            </section>
+            <section>
+                <h3>flex-flow</h3>
+                <pre><code>flex-flow:row | row-reverse | column | column-reverse || nowrap | wrap | wrap-reverse;</code></pre>
+            </section>
+            <section data-transition="concave">
+                <h2>justify-content</h2>
+                <pre><code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></pre>
+                <img src="img/justify-content.png" />
+            </section>
+            <section data-transition="concave">
+                <h2>align-items</h2>
+                <pre><code>align-items: flex-start | flex-end | center | baseline | stretch;</code></pre>
+                <img src="img/align-items.png" />
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>align-content</h3>
+                <pre><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></pre>
+                <img src="img/align-content.png" />
+            </section>
+            <section data-transition="convex">
+                <h3>项目属性</h3>
+                <ul>
+                    <li class="fragment">
+                        1.order
+                        <ul>
+                            <li class="fragment">用整数值来定义排列顺序</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        2.flex-grow
+                        <ul>
+                            <li class="fragment">义项目的放大比例,</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        3.flex-shrink
+                        <ul>
+                            <li class="fragment">定义了项目的缩小比例</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        4.flex-basis
+                        <ul>
+                            <li class="fragment">定义了在分配多余空间之前，项目占据的主轴空间</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        5.flex
+                        <ul>
+                            <li class="fragment">flex属性是flex-grow, flex-shrink 和 flex-basis的简写</li>
+                        </ul>
+                    </li>
+                    <li class="fragment">
+                        6.align-self
+                        <ul>
+                            <li class="fragment">align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>order</h3>
+                <pre><code>order:integer;/* default 0 */</code></pre>
+                <p>默认为0，数值小的排在前面。可以为负值order定义将会影响 position值为static元素的层叠级别，数值小的会被数值大的盖住。</p>
+                <img src="img/order.png" />
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>flex-grow</h3>
+                <pre><code>flex-grow:number;/* default 0 */</code></pre>
+                <p>默认为0，即如果存在剩余空间，也不放大</p>
+                <img src="img/grow.png" />
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>flex-shrink</h3>
+                <pre><code>flex-grow:number;/* default 1 */</code></pre>
+                <p>默认为1，即剩余空间不足，该项目将缩小</p>
+                <img src="img/grow.png" />
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>flex-basis</h3>
+                <pre><code>flex-basis: length | percentage | auto; /* default auto */</code></pre>
+                <p>默认值为auto，即项目的本来大小，根据每项设置的基准值，按比率伸缩剩余空间</p>
+                <img src="img/grow.png" />
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>flex</h3>
+                <pre><code>flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]</code></pre>
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>align-self</h3>
+                <p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+                <pre><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code></pre>
+            </section>
+            <section data-transition="convex-in fade-out">
+                <h3>Thanks</h3></section>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }]
+        });
+        </script>
+    </div>
+</body>
+
+</html>
