@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gulp</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <style>
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+    	text-transform:none;
+    }
+    </style>
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <h1>gulp.js - 基于流的自动化构建工具</h1>
+            </section>
+            <section>
+                <section>
+                    <h2>Gulp是什么</h2>
+                </section>
+                <section>
+                    <h3>gulp.js 是一种基于流的，代码优于配置的新一代构建工具。</h3>
+                </section>
+                <section>
+                    <h3>Gulp是一个自动化构建系统，它可以帮助你完成一些常见的自动化任务，比如:
+                    代码的合并压缩，语法的检查等，从而提高你的开发速率，让你的工作更有效率。</h3>
+                   
+                </section>
+            </section>
+            <!-- <section> -->
+            <!--     <h2>为什么选Sass</h2> -->
+            <!--     <ul> -->
+            <!--         <li class="fragment">和所有版本的CSS完全兼容</li> -->
+            <!--         <li class="fragment">有丰富的特性</li> -->
+            <!--         <li class="fragment">成熟的核心团队</li> -->
+            <!--         <li class="fragment">庞大的社区</li> -->
+            <!--         <li class="fragment">非常多的基于Sass的框架</li> -->
+            <!--     </ul> -->
+            <!-- </section> -->
+            <section>
+                <h2>Gulp安装</h2>
+                <ol>
+                    <li><a href="https://nodejs.org/en/">安装Node.js</a></li>
+                    <li> 全局安装 gulp：<pre style="overflow:hidden;"><code style="overflow:hidden;">
+        $ npm install --global gulp                              
+                    </code></pre></li>
+                </ol>
+            </section>
+            <section>
+            	<section>
+            		<h2>Gulp使用</h2>
+            	</section>
+            	<section>
+            		<h3>1. 在你的项目下把 gulp 安装为开发依赖组件（假设你已经创建好了 package.json）</h3>
+            		<pre><code>
+            				npm install gulp --save-dev
+            			</code></pre>
+            	</section>
+            	<section>
+            		<h3>2. 在项目的根路径下创建 Gulpfile.js</h3>
+                    <pre>
+                        <code>
+var gulp = require('gulp'),
+   uglify = require('gulp-uglify');
+
+gulp.task('minify', function () {
+   gulp.src('js/app.js')
+      .pipe(uglify())
+      .pipe(gulp.dest('build'))
+});
+
+gulp.task('default', ['minify']);
+                        </code>
+                    </pre>
+            	</section>
+            	<section>
+            		<h3>Gulp项目结构</h3>
+                    <pre>
+        |-- app
+	|  |-- vendors (bower_components)
+	|  |-- styles
+	|  |  |-- style_one.scss
+	|  |  |-- style_two.scss
+	|  |-- scripts
+	|  |  |-- script_one.coffee
+	|  |  |-- script_two.coffee
+	|  |-- images
+	|  |  |-- background.png
+	|  |-- index.html
+	|-- dist
+	|  |-- styles
+	|  |  |-- main.min.css
+	|  |-- scripts
+	|  |  |-- scripts.min.js
+	|  |-- images
+	|  |-- index.html
+	|-- node_modules
+	|-- test
+                    </pre>
+            	</section>
+            </section>
+
+
+            <section>
+            	<section>
+                    <h2>gulp.js 的 API</h2>
+                    <ul>
+                        <li class="fragment"> gulp.task(name[, deps], fn) - 注册任务 ，name 是任务名称；deps 是可选的数组，其中列出需要在本任务运行要执行的任务；fn 是任务体  </li>
+                        <li class="fragment"> gulp.src(globs[, options])：指明源文件路径</li>
+                        <li class="fragment"> gulp.dest(path)：指明任务处理后的目标输出路径</li>
+                        <li class="fragment"> gulp.watch(glob[, options], tasks)／gulp.watch(glob[, options, cb])：监视文件的变化并运行相应的任务</li>
+                        <li class="fragment"> gulp.pipe() - 管道，你可以暂时将 pipe 理解为将操作加入执行队列</li>
+                    </ul>
+            	</section>
+            </section>
+
+            <section>
+            	<section>
+                    <h2>gulp 插件</h2>
+                     <ul>
+                        <li class="fragment">语法检查   （gulp-jshint）</li>
+                        <li class="fragment">合并文件   （gulp-concat）</li>
+                        <li class="fragment">压缩代码   （gulp-uglify）</li>
+                        <li class="fragment">文件重命名 （gulp-rename）</li>
+                        <li class="fragment">添加-webkit-，-moz-，-ms-前缀 （gulp-autoprefixer）</li>
+                        <li class="fragment">压缩css （gulp-minify-css）</li>
+                        <li class="fragment">删除文件或文件夹 （gulp-clean）</li>
+                        <li class="fragment">自动载入所有的gulp模块 （gulp-load-plugins）</li>
+                    </ul>
+            	</section>
+                <section>
+            	更多插件，见<a href="http://gulpjs.com/plugins/">这里</a>
+                </section>
+            </section>
+
+            <section>
+            	<h2>End</h2>
+            </section>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }]
+        });
+        </script>
+    </div>
+</body>
+
+</html>
