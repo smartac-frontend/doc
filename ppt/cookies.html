@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cookies</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+                    
+					<h1>
+                    <img title="教你设置一个永远都无法删除的cookie的图片" alt="evercookie" class="alignnone size-full wp-image-5266" src="http://img01.21ops.com/2014/04/77591396865857.jpg" width="288" height="270" style="word-wrap: break-word; border: none; max-width: 700px; margin: 10px 15px;">
+                    <p>Cookies</p>
+                    </h1>
+				</section>
+
+				<section>
+					<h2>WHAT</h2>
+					<p>
+						Cookie是指在HTTP协议下，服务器或脚本可以维护客户端计算机上信息的一种方式 。
+					</p>
+					<p>
+						通俗地说，Cookie是一种能够让网站Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。 Cookie文件则是指在浏览某个网站时，由Web服务器的CGI脚本创建的存储在浏览器客户端计算机上的一个小文本文件，其格式为：用户名@网站地址 ［数字］.txt。
+					</p>
+				</section>
+
+				<section>
+					<h2>WHAT</h2>
+					<p>
+						属性：Expires过期时间、Path路径、Domain域、Secure 安全
+					</p>
+					<p>
+						作用域：最大可能的作用域 yourdomain.com所有角落（设置Cookie.Domain = "yourdomain.com"，效果为yourdomain.com域下的所有主机的所有位置都可以取到这个Cookie)
+					</p>
+				</section>
+
+				<section>
+					<h2>WHY</h2>
+					<p>
+						HTTP协议，保持连续的状态信息。
+					</p>
+				</section>
+
+				<section>
+					<h2>HOW</h2>
+					<pre>
+
+//写cookies 
+
+function setCookie(name,value) 
+{ 
+    var Days = 30; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+} 
+
+//读取cookies 
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+
+//删除cookies 
+function delCookie(name) 
+{ 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() - 1); 
+    var cval=getCookie(name); 
+    if(cval!=null) 
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+} 
+					</pre>
+                    <P><a href="http://www.21ops.com/linux/23636.html" target="_blank">其他</a></P>
+				</section>
+
+
+				<section>
+					<h2>用途</h2>
+					<p>
+						（1）实现Web中的用户认证
+					</p>
+                    <p>
+						（2）定制个性化空间
+					</p>
+                   <p>
+						（4）维护在线电子商务客户信息 
+					</p>
+                   <p>
+						（5）记录站点轨迹 
+					</p>
+				</section>
+
+				<section>
+					<h2>糟透了</h2>
+                    <p><img border="0" height="372" hspace="0" src="http://img0.tech2ipo.com/upload/img/article/2013/10/1381678845277.jpg" style="width: 642px; height: 372px;" title="" vspace="0" width="642"></p>
+					<p>
+						（1）Cookie欺骗,Cookie截获 
+					</p>
+                    <p>
+						（2）隐私 
+					</p>
+                    <p>
+						（3）移动互联网、流媒体、跨平台
+					</p>
+                    <p>
+						（3）YSLOW 每次的http请求，cookie都会包含在包头里发送给服务器
+					</p>
+                    <aside class="notes">
+                        每个浏览器支持的cookies数量、大小、以及替换机制不一样，且随着浏览器的迭代在变化
+                    </aside>
+				</section>
+
+				<section>
+					<h2>LIVE OR DEAD</h2>
+                    <p><img src=http://chuantu.biz/t2/20/1448356776x-954497643.jpg /></p>
+                    <p>短期内应该回持续使用，巨头们正在寻找替代技术</p>
+				</section>
+
+				<section>
+					<h2>头脑风暴</h2>
+                    <p><img src=http://pic.58pic.com/58pic/12/68/35/12e58PICitE.jpg /></p>
+                    <p>应用程序存储及传值方式，cookie加解密</p>
+				</section>
+
+
+				<section>
+					<h1>THE END</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
