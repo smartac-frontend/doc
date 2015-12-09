@@ -1,0 +1,331 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ES6 简介</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <style>
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+            text-transform:none;
+        }
+    </style>
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <!-- 这个容器内的任何部分元素都显示为幻灯片 -->
+        <div class="slides">
+            <section>
+                <h3>ECMAScript 6简介</h3>
+                <p>ECMAScript6是下一代Javascript标准，这个标准在2015年6月得到批准。ES6是Javascript的一个重大的更新，并且是自2009年发布ES5以来的第一次更新。 它将会在主要的Javascript引擎实现以下新的特性。</p>
+            </section>
+     
+       <section>
+                <h3>ECMAScript 和Javascript的关系</h3>
+                <p>ECMAScript是Javascript语言的国际标准，Javascript是ECMAScript的实现。</p>
+            </section>
+            <!-- 嵌套垂直滑动的例 -->
+            <section>
+                <section>
+                    <h3> ECMAScript 6 新特性：</h3> 
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        <p>1.&nbsp;&nbsp;&nbsp;Arrows（箭头函数） </p>
+                        <p>ES6允许使用“箭头”（=>）定义函数。在语法上类似于C#、Java8和CoffeeScript的相关特性。它们同时支持表达式和语句体，和函数不同的是， 箭头在上下文中共享相同的this关键字。</p>
+                        ```
+// single 函数名  a 参数   alert(a) 方法体
+var single = a => alert(a);
+single('hello, world')
+
+//函数体多条语句需要用到大括号
+var add = (a, b, c) => {
+var t = a + b + c;
+return t / 3;
+};
+
+// this关键字共享
+obj = {
+data: ['John Backus', 'John Hopcroft'],
+init: function() {
+document.onclick = ev => {
+alert(this.data) // ['John Backus', 'John Hopcroft']
+}
+// 非箭头函数
+// document.onclick = function(ev) {
+//     alert(this.data) // undefined
+// }
+}
+}
+                    	```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>2.&nbsp;&nbsp;&nbsp;Classe结构  </p>
+                    <p>相对于目前使用的基于原型的面向对象模式而言，ES6中的class做法是一个简单的语法糖。它有一个方便的申明模式，并且鼓励互操作性。 class支持基于原型的继承、super调用、实例和静态方法和构造函数。 </p>
+                    ```
+//类的定义
+class Animal {
+//ES6中新型构造器
+    constructor(name) {
+        this.name = name;
+    }
+
+//实例方法
+    sayName() {
+        console.log('My name is ' + this.name);
+    }
+}
+//类的继承
+class Programmer extends Animal {
+    constructor(name) {
+    //直接调用父类构造器进行初始化
+        super(name);
+    }
+    program() {
+        console.log("I'm coding...");
+    }
+    static print(name){
+        console.log(name);
+    }
+}
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>3.&nbsp;&nbsp;&nbsp;增强的Object对象  </p>
+                    <p>Object对象的增强ES6允许直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。</p>
+                    ```
+//通过对象字面量创建对象
+var human = {
+breathe() {
+console.log('breathing...');
+}
+};
+var worker = {
+__proto__: human, //设置此对象的原型为human,相当于继承human
+company: 'freelancer',
+work() {
+console.log('working...');
+}
+};
+human.breathe();//输出 ‘breathing...’
+//调用继承来的breathe方法
+worker.breathe();//输出 ‘breathing...’
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>4.&nbsp;&nbsp;&nbsp; 模板字符串  </p>
+                    <p>模板字符串提供构造字符串的语法糖，这种用法类似perl，python中的插值特征功能。 可选地,可以添加一个标签允许自定义字符串建设,避免注入攻击或从字符串构造更高层次数据结构的内容。</p>
+                    ```
+// 基本的字符串创建
+`In JavaScript '\n' is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.`
+
+// 构建DOM查询
+var name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
+
+GET`http://foo.org/bar?a=${a}&b=${b}
+
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>5. &nbsp;&nbsp;&nbsp;Let 和 Const操作符   </p>
+                    <p>ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。 const也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。 </p>
+                    ```
+function f() {
+  {
+    let x;
+    {
+      // okay, block scoped name
+      const x = "sneaky";
+      // error, const
+      x = "foo";
+    }
+    // error, already declared in block
+    let x = "inner";
+  }
+}
+                    ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>6.&nbsp;&nbsp;&nbsp; For...of循环  </p>
+                    <p>JavaScript原有的for...in循环，只能获得对象的键名，不能直接获取键值。ES6提供for...of循环，允许遍历获得键值</p>
+                    ```
+var someArray = [ "a", "b", "c" ];
+
+for (v of someArray) {
+    console.log(v);//输出 a,b,c
+}
+                        ```
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    <p>7.&nbsp;&nbsp;&nbsp;Modules 模块  </p>
+                    <p>ES6 在语言层面上支持使用模块来进行组件定义，将流行的JavaScript模块加载器（AMD、CommonJS）中的模式固化到了语言中。
+                    运行时行为由宿主定义的默认加载器定义，隐式异步模型 - 直到（全部）请求的模块均可用且经处理后，才会执行（当前模块内的）代码。</p>
+                    ```
+// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+// app.js
+import * as math from "lib/math";
+alert("2π = " + math.sum(math.pi, math.pi));
+// otherApp.js
+import {sum, pi} from "lib/math";
+alert("2π = " + sum(pi, pi));
+
+---------------------------
+// point.js
+module "point" {
+    export class Point {
+        constructor (x, y) {
+            public x = x;
+            public y = y;
+        }
+    }
+}
+
+// myapp.js
+//声明引用的模块
+module point from "/point.js";
+//这里可以看出，尽管声明了引用的模块，还是可以通过指定需要的部分进行导入
+import Point from "point";
+
+var origin = new Point(0, 0);
+console.log(origin);
+                        ```
+                </script>
+            </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        <p>8.&nbsp;&nbsp;&nbsp; Promises 对象   </p>   
+                        <p>Promises是处理异步操作的一种模式，之前在很多三方库中有实现，比如jQuery的deferred 对象。当你发起一个异步请求，并绑定了.when(), .done()等事件处理程序时，其实就是在应用promise模式</p>
+                        ```
+//创建promise
+var promise = new Promise(function(resolve, reject) {
+    // 进行一些异步或耗时操作
+    if ( /*如果成功 */ ) {
+        resolve("Stuff worked!");
+    } else {
+        reject(Error("It broke"));
+    }
+});
+//绑定处理程序
+promise.then(function(result) {
+    //promise成功的话会执行这里
+    console.log(result); // "Stuff worked!"
+}, function(err) {
+    //promise失败会执行这里
+    console.log(err); // Error: "It broke"
+});
+                        ```
+                    </script>
+                </section>
+                <section>
+                    <h2>更新特性</h2>
+                    <p>1、解构</p>
+                    <p>2、参数默认值，不定参数，拓展参数</p>
+                    <p>3、iterator, generator</p>
+                    <p>4、Map，Set 和 WeakMap，WeakSet</p>
+                    <p>5、Proxies</p>
+                    <p>6、Symbols</p>
+                    <p>7、Math，Number，String，Object 的新API</p>
+                </section>
+        </section>
+   
+        </section>
+        <section>
+            <h2>浏览器兼容</h2> 
+            <p><a href="http://kangax.github.io/compat-table/es6/">http://kangax.github.io/compat-table/es6/</a></p>
+        </section>
+        <section data-markdown>
+        	<script type="text/template">
+            <h2>ES6转ES5插件</h2> 
+            <p>Google公司的Traceur编译器可以将ES6编译为ES5</p>
+            	<ol>
+            	<li>加载编译器 http://google.github.io/traceur-compiler/bin/traceur.js </li>
+            	<li>将编辑器用于网页http://google.github.io/traceur-compiler/src/bootstrap.js</li>
+            	<li>打开实验选项 traceur.options.experimental = true</li>
+            	<li>编写ES代码，但是script标签的type属性应设置为module</li>
+            		<li>外部文件代码，直接引入，同样将script标签的type属性应设置为module</li>
+            		<li>在线转换工具 http://google.github.io/traceur-compiler/demo/repl.html/</li>
+            	</ol>
+            	
+            	</script>
+        </section>
+        <section>
+            <h2>参考资料</h2> 
+            <p><a href="http://caibaojian.com/es6.html">http://caibaojian.com/es6.html</a></p>
+            <p><a href="http://www.cnblogs.com/Wayou/p/es6_new_features.html">http://www.cnblogs.com/Wayou/p/es6_new_features.html</a></p>
+            <h2>更多文章</h2> 
+            <p><a href="http://barretlee.com/ES6/">http://barretlee.com/ES6/</a></p>
+        </section>
+        <section>
+            <h1>THE END</h1> 
+        </section>
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function () { return !!document.querySelector('pre code'); }, callback: function () { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+</body>
+</html>
