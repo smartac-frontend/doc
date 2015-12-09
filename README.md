@@ -62,7 +62,7 @@
 * Flex布局 [ppt](ppt/flex.html) [demo](demo/flex)
 * cookie [ppt](ppt/cookie.html)
 * CSS3 高性能动画 [ppt](ppt/animate.html)
-* ES6简介 [ppt](ppt/es6.html) [demo](demo/index.html)
+* ES6简介 [ppt](ppt/es6.html) [demo](demo/es6/index.html)
 
 ## <a name="demo">第三方插件使用或一些其他的demo</a>
 * [随机选图片](demo/select-no-repeat-pic) 从若干张图片中个，随机选择2张，下一次继续随机选2张，但选的不能和之前的图片相同
