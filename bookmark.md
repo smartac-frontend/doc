@@ -1,6 +1,19 @@
 # 前端网站收藏
 ## 兼容查询
+* [Can I Use](http://caniuse.com/) HTML 5 浏览器兼容性查询
+* [ES5规范浏览器兼容性表格](http://kangax.github.io/compat-table/es5/)
+* [ES6规范浏览器兼容性表格](http://kangax.github.io/compat-table/es6/)
+* [HTML 5 Please](http://html5please.com/) HTML5 与 CSS3 技术应用评估
+* [Browserhacks](http://browserhacks.com/) 各种奇妙的浏览器hack
+* [ios端移动设备参数速查](http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/)
+* [Compatibility overview](http://www.quirksmode.org/compatibility.html) CSS，DOM，Event，Mobile 等的兼容表
 
+## 工具
+* [CSS3 动画在线制作器](http://ecd.tencent.com/css3/tools.html)
+* [CSS3 渐变在线制作器](http://www.colorzilla.com/gradient-editor/)
+
+## 优秀教程
+* [JavaScript 标准参考教程](http://javascript.ruanyifeng.com/) 阮一峰
 
 ## 阅读源
 ### 聚合
@@ -26,4 +39,3 @@
 * [W3plus](http://www.w3cplus.com/)
 
 
-## 优秀教程
