@@ -19,24 +19,9 @@
 ## 每周好文
 每周发现的好文可以回复在时间为本周，标签为每周好文的[issue](https://github.com/smartac-frontend/doc/labels/%E6%AF%8F%E5%91%A8%E5%A5%BD%E6%96%87)下。    
 
-好文的来源    
-* 邮件订阅
-	* [码农周刊](http://weekly.manong.io/)
-	* [CSS Weekly](http://css-weekly.com/)
-	* [HTML5 Weekly](http://html5weekly.com/)
-	* [JavaScript Weekly](http://javascriptweekly.com/)
-	* [Nodejs Weekly](http://nodeweekly.com/)
-	* [Web Tools weekly](http://webtoolsweekly.com/)
-	* [hackernewsletter](http://www.hackernewsletter.com/)
-* 站
-	* [前端乱炖](http://www.html-js.com/)
-	* [div.io](http://div.io/)
-	* [开发者头条](http://toutiao.io/)
-	* [w3plus 大漠](http://www.w3cplus.com/)
-	* [前端De早读课](http://www.zaoduke.net/)
-	* [前端外刊评论](http://zhuanlan.zhihu.com/FrontendMagazine)
 
 ## 目录
+* [前端网站收藏](bookmark.md)
 * [API 速查](#cheat-sheets)
 * [代码规范及最佳实践](#code-style)
 * [知识总结](#knowledge)
