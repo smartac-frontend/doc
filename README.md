@@ -37,6 +37,7 @@
 * [Media Queries](http://mac-blog.org.ua/css-3-media-queries-cheat-sheet/) 媒体查询
 * [Javascript API](http://overapi.com/javascript/)
 * [JQuery API](http://oscarotero.com/jquery/)
+* [HTML 5 Canvas Cheat Sheet](http://websitesetup.org/html-5-canvas-cheat-sheet/)
 * [Git](http://www.git-tower.com/blog/git-cheat-sheet/)
 
 ## <a name="code-style">代码规范及最佳实践</a>
