@@ -3,21 +3,21 @@
 <a href="https://gitter.im/iamjoel/smartac-fe"><img src="https://badges.gitter.im/Join Chat.svg"></a>
 </p>
 
-存放前端相关文档。    
+存放前端相关文档。
 
-集大家的力量，使我们前端小组成员成为高效，优雅的前端工程师。    
+集大家的力量，使我们前端小组成员成为高效，优雅的前端工程师。
 
 对本项目内容进行新增或修改，请认真阅读并遵循[这里](CONTRIBUTING.md)描述的。
 
 ## 聚会
-每周一次的聚会。每次聚会会定一个主题。主持人根据主题进行分享，分享之后，大家可以聊下最近工作中碰到的一些难题，心得之类。聚会时长1小时左右。在没有人自告奋勇的情况下，大家轮流做主持人。    
+每周一次的聚会。每次聚会会定一个主题。主持人根据主题进行分享，分享之后，大家可以聊下最近工作中碰到的一些难题，心得之类。聚会时长1小时左右。在没有人自告奋勇的情况下，大家轮流做主持人。
 
-如果分享时，要做PPT的，推荐用[reveal.js](software/reveal.js.md)。    
+如果分享时，要做PPT的，推荐用[reveal.js](software/reveal.js.md)。
 
 聚会的记录和一些讨论回复在标题为聚会主题，标签为聚会的[issue](https://github.com/smartac-frontend/doc/labels/%E8%81%9A%E4%BC%9A)下。
 
-## 每周好文
-每周发现的好文可以回复在时间为本周，标签为每周好文的[issue](https://github.com/smartac-frontend/doc/labels/%E6%AF%8F%E5%91%A8%E5%A5%BD%E6%96%87)下。    
+## 文章收藏
+在[文章收藏 issue](https://github.com/smartac-frontend/doc/issues/32) 下回复。最后会汇总到 http://toutiao.io/subjects/71779
 
 
 ## 目录
