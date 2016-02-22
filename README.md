@@ -19,6 +19,10 @@
 ## 文章收藏
 在[文章收藏 issue](https://github.com/smartac-frontend/doc/issues/32) 下回复。最后会汇总到 http://toutiao.io/subjects/71779
 
+## 提升计划
+* [Code Review](up/code-review.md)
+* [源码阅读推荐](up/good-source-code-list.md)
+* 练手任务
 
 ## 目录
 * [前端网站收藏](bookmark.md)
