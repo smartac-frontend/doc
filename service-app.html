@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ServiceApp 架构分享</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <style>
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6{
+    	text-transform:none;
+    }
+    </style>
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>ServiceApp 架构分享</h1>
+            </section>
+            <section>
+                <h2>主要内容</h2>
+                <ul>
+                    <li class="fragment">什么是好的架构</li>
+                    <li class="fragment">service-app 的主要的脚本库</li>
+                    <li class="fragment">service-app 开发流程</li>
+                    <li class="fragment">小Tip</li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h2>什么是好的架构</h2>
+                    <ul>
+                        <li class="fragment">能进行高效的开发</li>
+                        <li class="fragment">Happy Coding</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>选择合适的主要的脚本库</h3>
+                    <span class="fragment">成熟程度</span>
+                    <span class="fragment">，支持特性/写法</span>
+                    <span class="fragment">，生态如何</span>
+                    <span class="fragment">，代码质量</span>
+                    <span class="fragment">，学习成本</span>
+                    <span class="fragment">，是否方便调试</span>
+                </section>
+                <section>
+                	<h3>合理的目录结构</h3>
+                    <ul>
+                        <li class="fragment">相关性强的内容放在靠近的位置</li>
+                        <li class="fragment">合理命名文件夹和文件</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>其他一些原则</h3>
+                    <ul>
+                        <li class="fragment">框架要对一些通用的东西做封装。如ajax</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+            	<section>
+            		<h2>service-app 的主要的脚本库</h2>
+            	</section>
+                <section>
+                    <h3>Vue.js + Webpack</h3>
+                </section>
+            	<section>
+            		<h3>Vue.js Vs Angular1</h3>
+                    <div class="fragment">Vue.js优势</div>
+            		<ul>
+                        <li class="fragment">学习成本比较低</li>
+                        <li class="fragment">写法更简单</li>
+                    </ul>
+                    <a class="fragment" href="http://vuejs.org/guide/comparison.html#Angular-1">更多</a>
+            	</section>
+                <section>
+                    <pre><code>
+<!-- angular -->
+<li ng-repeat="item in list"><a ng-click="showDetail(item)">{{item.id}}</a></li>
+<!-- vue -->
+<li v-for="item in list"><a v-click="showDetail(item)">{{item.id}}</a></li>
+                    </code></pre>
+                </section>
+                <section>
+                    自定义指令
+                    <pre><code>
+<!-- angular -->
+myModule.directive('directiveName', function (injectables) {
+  return {
+    restrict: 'A',
+    template: '<div></div>',
+    controller: function() { ... },
+    compile: function() {...},
+    link: function() { ... }
+    //(other props excluded)
+  };
+});
+<!-- vue -->
+Vue.directive('my-directive', {
+  bind: function () {...},
+  update: function (newValue, oldValue) {...},
+  unbind: function () {...}
+});
+                    </code></pre>
+                </section>
+                <section>
+                    <pre><code>
+<!-- angular -->
+myModule.angular.module('filterName', [])
+.filter('reverse', function() {
+  return function(input) {...};
+});
+<!-- vue -->
+Vue.filter('reverse', function (value) {
+  return function(value){...};
+});
+                    </code></pre>
+                </section>
+            <section>
+            		<h3>Webpack Vs require.js + Gulp.js</h3>
+            		<div class="fragment">Webpack 功能更强大</div>
+            	</section>
+            </section>
+            <section>
+            	<section>
+                    <h2>service-app 开发流程</h2>
+                </section>
+                <section>
+                    <h2>目录结构</h2>
+                    <img src="img/service-app/file-struct.png" alt="">
+
+                </section>
+                <section>
+                    <h2>开发流程</h2>
+                </section>
+                <section>
+                   <h2>写路由</h2>
+                    <pre><code>
+routes[页面路由] = {
+  component: function(resolve) {
+    require.ensure([], function(require) {
+      resolve(require(页面的.js));
+    });
+  }
+};
+                    </code></pre>
+                </section>
+                <section>
+                   <h2>写页面</h2>
+                    <pre><code>
+var Main = RouteComponent.extend({
+  template: '<style>' + require('./style.css') + '</style>' + require('./index.html'),
+  data: function(){return {a:xxx,b:xxx}},
+  methods: {},
+  create: function(){},
+  ready: function(){},
+  filter: {},
+  components: {}
+})
+module.exports = Main;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>模拟后端请求</h2>
+                    <pre><code>
+var isDebug = false;
+isDebug && require('./mock');                     
+                    </code></pre>
+                    <pre><code>
+// mock.js
+var Mock = require('mock');
+var urls = window.settings.urls;
+
+Mock.mock(urls.UPDATE_CUSTOMER_INFO, 'post', {
+    "errcode": 0,
+    "errmsg": null
+});                     
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>多语言</h2>
+                    <pre><code>
+<!-- 页面中 -->
+{{$root.lan('会员信息')}}
+                    </code></pre>
+                    <pre><code>
+<!-- language/En.json -->
+{
+  "会员信息": "Customer Inof",
+  ...
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>常见命令</h2>
+                    <ul>
+                        <li>npm run dev: 开发时执行</li>
+                        <li>npm run build: 构建时执行</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>小Tip</h2>
+                    <ul>
+                        <li>多看优秀项目的源码。<a href="https://github.com/fundon/vue-admin">vue-admin</a></li>
+                        <li>用 ES6。</li>
+                    </ul>
+                </section>
+            	<section></section>
+            </section>
+            <section>
+                <h2>End</h2>
+            </section>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }]
+        });
+        </script>
+    </div>
+</body>
+
+</html>
